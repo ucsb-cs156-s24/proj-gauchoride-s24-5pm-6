@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-s24/proj-gauchoride-s24-5pm-6
 owner: ucsb-cs156-s24
 repo_name: proj-gauchoride-s24-5pm-6
-pull_requests: [{"author":{"id":"U_kgDOBXuxuA","is_bot":false,"login":"amisra0","name":""},"headRefName":"AnikaDriversControllerBackend","number":20,"title":"Non-Admin Users CanNOT Access Driver List","url":"https://github.com/ucsb-cs156-s24/proj-gauchoride-s24-5pm-6/pull/20"},{"author":{"id":"MDQ6VXNlcjcyNzc3NTIz","is_bot":false,"login":"diyaparm","name":""},"headRefName":"Diya-ShiftTableHeaders","number":19,"title":"Fixed the Headers for Shift Table","url":"https://github.com/ucsb-cs156-s24/proj-gauchoride-s24-5pm-6/pull/19"}]
+pull_requests: [{"author":{"id":"U_kgDOBXuxuA","is_bot":false,"login":"amisra0","name":""},"headRefName":"AnikaDriversControllerBackend","number":20,"title":"Non-Admin Users CanNOT Access Driver List","url":"https://github.com/ucsb-cs156-s24/proj-gauchoride-s24-5pm-6/pull/20"}]
