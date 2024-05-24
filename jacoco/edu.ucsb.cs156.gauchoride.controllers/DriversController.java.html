@@ -36,7 +36,7 @@ import io.swagger.v3.oas.annotations.Parameter;
     ObjectMapper mapper;
 
     @Operation(summary = &quot;Get a list of all drivers&quot;)
-    @PreAuthorize(&quot;hasRole('ROLE_ADMIN') || hasRole('ROLE_DRIVER') || hasRole('ROLE_USER')&quot;)
+    @PreAuthorize(&quot;hasRole('ROLE_ADMIN') || hasRole('ROLE_DRIVER')&quot;)
     @GetMapping(&quot;/all&quot;)
     public ResponseEntity&lt;String&gt; drivers()
             throws JsonProcessingException {
