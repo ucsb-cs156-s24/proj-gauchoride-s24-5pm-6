@@ -16,7 +16,7 @@ function RideForm({ initialContents, submitAction, buttonLabel = "Create" }) {
     } = useForm(
         { defaultValues: initialContents }
     );
-    // Stryker enable all
+    // Stryker restore all
    
     const testIdPrefix = "RideForm";
 

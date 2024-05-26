@@ -15,7 +15,7 @@ function RiderApplicationEditForm({ initialContents, submitAction, email}) {
     } = useForm(
         { defaultValues: initialContents }
     );
-    // Stryker enable all
+    // Stryker restore all
    
     const testIdPrefix = "RiderApplicationEditForm";
 

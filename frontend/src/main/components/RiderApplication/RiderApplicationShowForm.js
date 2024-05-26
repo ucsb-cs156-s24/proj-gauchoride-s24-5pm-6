@@ -13,7 +13,7 @@ function RiderApplicationShowForm({ initialContents, buttonLabel = "Back", email
     } = useForm(
         { defaultValues: initialContents }
     );
-    // Stryker enable all
+    // Stryker restore all
    
     const testIdPrefix = "RiderApplicationShowForm";
 

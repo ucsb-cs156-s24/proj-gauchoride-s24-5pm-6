@@ -16,7 +16,7 @@ function ChatMessageForm({ initialContents, submitAction, buttonLabel = "Send" }
     } = useForm(
         { defaultValues: initialContents }
     );
-    // Stryker enable all
+    // Stryker restore all
    
     const testIdPrefix = "ChatMessageForm";
 
