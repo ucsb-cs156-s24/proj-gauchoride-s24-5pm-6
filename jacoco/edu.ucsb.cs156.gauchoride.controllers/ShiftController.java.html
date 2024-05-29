@@ -81,14 +81,14 @@ import io.swagger.v3.oas.annotations.Parameter;
         @Parameter(name=&quot;day&quot;) @RequestParam String day,
         @Parameter(name=&quot;shiftStart&quot;) @RequestParam String shiftStart,
         @Parameter(name=&quot;shiftEnd&quot;) @RequestParam String shiftEnd,
-        @Parameter(name=&quot;driverID&quot;) @RequestParam long driverID ,
+        @Parameter(name=&quot;driverID&quot;) @RequestParam long driverID,
         @Parameter(name=&quot;driverBackupID&quot;) @RequestParam long driverBackupID
         )
         {
 
 <span class="fc" id="L89">        Shift shift = new Shift();</span>
 
-<span class="fc" id="L91">        shift.setDriverID(getCurrentUser().getUser().getId());</span>
+<span class="fc" id="L91">        shift.setDriverID(driverID);</span>
 <span class="fc" id="L92">        shift.setDay(day);</span>
 <span class="fc" id="L93">        shift.setShiftStart(shiftStart);</span>
 <span class="fc" id="L94">        shift.setShiftEnd(shiftEnd);</span>
