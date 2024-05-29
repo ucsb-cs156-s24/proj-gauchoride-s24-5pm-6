@@ -122,7 +122,7 @@ describe("ShiftForm tests", () => {
         expect(screen.getByTestId("ShiftForm-submit")).toBeInTheDocument();
     });
 
-    test("validates that backup driver cannot be the same as the main driver", async () => {
+    test("validates that backup driver cannot be the same as the main driver", async () => { 
         render(
             <QueryClientProvider client={queryClient}>
                 <Router>
