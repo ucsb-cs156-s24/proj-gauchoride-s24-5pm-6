@@ -8,6 +8,7 @@ import driverFixtures from "fixtures/driverFixtures";
 import shiftFixtures from "fixtures/shiftFixturesSecond";
 
 
+
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -28,6 +29,7 @@ describe("RideAssignDriverForm tests", () => {
         axiosMock.reset();
         axiosMock.resetHistory();
         axiosMock.onGet("/api/shift/all").reply(200, shiftFixtures.threeShifts);
+
         axiosMock.onGet("/api/drivers/all").reply(200, driverFixtures.threeDrivers);
     });
     const queryClient = new QueryClient();
@@ -81,8 +83,10 @@ describe("RideAssignDriverForm tests", () => {
         expect(await screen.findByTestId(`${testId}-id`)).toBeInTheDocument();
         expect(screen.getByText(`Id`)).toBeInTheDocument();
     });
-   
 
+
+        // Click create without filling in any fields
+        fireEvent.click(screen.getByText(/Assign Driver/));
 
     test("shows validation error messages", async () => {
         render(
@@ -104,6 +108,7 @@ describe("RideAssignDriverForm tests", () => {
        
     });
    
+
     test("that navigate(-1) is called when Cancel is clicked", async () => {
         render(
             <QueryClientProvider client={queryClient}>

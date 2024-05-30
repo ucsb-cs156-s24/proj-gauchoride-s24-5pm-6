@@ -6,6 +6,7 @@ import RideRequestAssignPage from "main/pages/Ride/RideRequestAssignPage";
 
 import driverFixtures from "fixtures/driverFixtures";
 import shiftFixtures from "fixtures/shiftFixturesSecond";
+
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
 import axios from "axios";
@@ -79,8 +80,6 @@ describe("RideRequestAssignPage tests", () => {
     });
 
 
-   
-
 
     describe("tests where backend is working normally", () => {
 
@@ -120,6 +119,7 @@ describe("RideRequestAssignPage tests", () => {
                 notes: "note2"
             });
             axiosMock.onGet("/api/shift/all").reply(200, shiftFixtures.threeShifts);
+
             axiosMock.onGet("/api/drivers/all").reply(200, driverFixtures.threeDrivers);
         });
 
@@ -143,6 +143,7 @@ describe("RideRequestAssignPage tests", () => {
                 const driver = (driverFixtures.threeDrivers).find(driver => driver.id === driverId);
         return driver ? `${driver.givenName} ${driver.familyName}` : '';
             };
+
 
 
             const { getByTestId, findByTestId } = render(
@@ -204,6 +205,7 @@ describe("RideRequestAssignPage tests", () => {
        
 
 
+
         test("Changes when you click Update", async () => {
 
 
@@ -250,7 +252,7 @@ describe("RideRequestAssignPage tests", () => {
 
 
             expect(submitButton).toBeInTheDocument();
-           
+
             fireEvent.change(shiftIdField, { target: { value: '2' } })
             fireEvent.change(dayField, { target: { value: 'Monday' } })
             fireEvent.change(startTimeField, { target: { value: '3:30PM' } })
