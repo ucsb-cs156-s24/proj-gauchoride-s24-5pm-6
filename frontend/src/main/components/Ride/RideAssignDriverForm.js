@@ -7,9 +7,11 @@ import { useBackend } from 'main/utils/useBackend';
 
 
 
+
+
 function RideAssignDriverForm({ initialContents, submitAction, buttonLabel = "Assign Driver" }) {
     const navigate = useNavigate();
-
+   
     const { data: drivers, error: _error, status: _status } = useBackend(
         // Stryker disable all : hard to test for query caching
         ["/api/drivers/all"],
@@ -27,7 +29,6 @@ function RideAssignDriverForm({ initialContents, submitAction, buttonLabel = "As
         // Stryker restore all
     );
     // Stryker disable all
-
 
 
     const { register, formState: { errors }, handleSubmit } = useForm(
@@ -71,6 +72,8 @@ function RideAssignDriverForm({ initialContents, submitAction, buttonLabel = "As
             )}
 
 
+           
+
 
             <Form.Group className="mb-3">
                 <Form.Label htmlFor="shiftId">Shift Id</Form.Label>
@@ -82,7 +85,6 @@ function RideAssignDriverForm({ initialContents, submitAction, buttonLabel = "As
                     isInvalid={Boolean(errors.shiftId)}
                     {...register("shiftId", {
                         required: "Shift Id is required."
-
                     })}
                     defaultValue={initialContents?.shiftId}
                 >
@@ -94,7 +96,7 @@ function RideAssignDriverForm({ initialContents, submitAction, buttonLabel = "As
 
         // Main driver option
         if (getDriverFullName(shift.driverID)) {
-            console.log(`${shift.id}-main`);
+            console.log(`${shift.id}-main`); 
             driverOptions.push(
                 <option key={`${shift.id}-main`} value={shift.id}>
                     {`${shift.driverID} - ${getDriverFullName(shift.driverID)} - ${shift.day} ${shift.shiftStart}-${shift.shiftEnd}`}
@@ -117,7 +119,6 @@ function RideAssignDriverForm({ initialContents, submitAction, buttonLabel = "As
         return driverOptions;
     })}
                 </Form.Select>
-
 
 
                 <Form.Control.Feedback type="invalid">
