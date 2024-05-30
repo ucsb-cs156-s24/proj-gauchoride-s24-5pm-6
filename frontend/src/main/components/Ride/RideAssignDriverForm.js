@@ -99,7 +99,7 @@ function RideAssignDriverForm({ initialContents, submitAction, buttonLabel = "As
             console.log(`${shift.id}-main`); 
             driverOptions.push(
                 <option key={`${shift.id}-main`} value={shift.id}>
-                    {`${shift.driverID} - ${getDriverFullName(shift.driverID)} - ${shift.day} ${shift.shiftStart}-${shift.shiftEnd}`}
+                    {`${shift.id} - ${getDriverFullName(shift.driverID)} - ${shift.day} ${shift.shiftStart}-${shift.shiftEnd}`}
                 </option>
             );
         }
@@ -109,7 +109,7 @@ function RideAssignDriverForm({ initialContents, submitAction, buttonLabel = "As
         if (getDriverFullName(shift.driverBackupID)) {
             driverOptions.push(
                 <option key={`${shift.id}-backup`} value={shift.id}>
-                    {`${shift.driverBackupID} - ${getDriverFullName(shift.driverBackupID)} - ${shift.day} ${shift.shiftStart}-${shift.shiftEnd}`}
+                    {`${shift.id} - ${getDriverFullName(shift.driverBackupID)} - ${shift.day} ${shift.shiftStart}-${shift.shiftEnd}`}
                    
                 </option>
             );
