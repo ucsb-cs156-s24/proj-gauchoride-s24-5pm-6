@@ -81,10 +81,7 @@ import lombok.extern.slf4j.Slf4j;
         DriverAvailability availability;
 <span class="fc" id="L82">        availability = driverAvailabilityRepository.findById(id)</span>
 <span class="fc" id="L83">                    .orElseThrow(() -&gt; new EntityNotFoundException(DriverAvailability.class, id));</span>
-<span class="pc bpc" id="L84" title="1 of 2 branches missed.">        if (availability.getDriverId() != getCurrentUser().getUser().getId()) {</span>
-<span class="nc" id="L85">            throw new EntityNotFoundException(DriverAvailability.class, id);</span>
-        }
-<span class="fc" id="L87">        return availability;</span>
+<span class="fc" id="L84">        return availability;</span>
     }
 
     //Edits an availability if owned by current user
@@ -98,16 +95,16 @@ import lombok.extern.slf4j.Slf4j;
                             @RequestBody @Valid DriverAvailability incoming)
     {
         DriverAvailability availability;
-<span class="fc" id="L101">        availability = driverAvailabilityRepository.findById(id)</span>
-<span class="fc" id="L102">                    .orElseThrow(() -&gt; new EntityNotFoundException(DriverAvailability.class, id));</span>
+<span class="fc" id="L98">        availability = driverAvailabilityRepository.findById(id)</span>
+<span class="fc" id="L99">                    .orElseThrow(() -&gt; new EntityNotFoundException(DriverAvailability.class, id));</span>
 
-<span class="fc" id="L104">        availability.setDay(incoming.getDay());</span>
-<span class="fc" id="L105">        availability.setStartTime(incoming.getStartTime());</span>
-<span class="fc" id="L106">        availability.setEndTime(incoming.getEndTime());</span>
-<span class="fc" id="L107">        availability.setNotes(incoming.getNotes());</span>
+<span class="fc" id="L101">        availability.setDay(incoming.getDay());</span>
+<span class="fc" id="L102">        availability.setStartTime(incoming.getStartTime());</span>
+<span class="fc" id="L103">        availability.setEndTime(incoming.getEndTime());</span>
+<span class="fc" id="L104">        availability.setNotes(incoming.getNotes());</span>
 
-<span class="fc" id="L109">        driverAvailabilityRepository.save(availability);</span>
-<span class="fc" id="L110">        return ResponseEntity.ok(availability);</span>
+<span class="fc" id="L106">        driverAvailabilityRepository.save(availability);</span>
+<span class="fc" id="L107">        return ResponseEntity.ok(availability);</span>
 
     }
 
@@ -121,16 +118,16 @@ import lombok.extern.slf4j.Slf4j;
                             @RequestParam Long id,
                             @RequestBody @Valid DriverAvailability incoming)
     {
-<span class="fc" id="L124">        DriverAvailability availability = driverAvailabilityRepository.findById(id)</span>
-<span class="fc" id="L125">                    .orElseThrow(() -&gt; new EntityNotFoundException(DriverAvailability.class, id));</span>
+<span class="fc" id="L121">        DriverAvailability availability = driverAvailabilityRepository.findById(id)</span>
+<span class="fc" id="L122">                    .orElseThrow(() -&gt; new EntityNotFoundException(DriverAvailability.class, id));</span>
 
-<span class="fc" id="L127">        availability.setDay(incoming.getDay());</span>
-<span class="fc" id="L128">        availability.setStartTime(incoming.getStartTime());</span>
-<span class="fc" id="L129">        availability.setEndTime(incoming.getEndTime());</span>
-<span class="fc" id="L130">        availability.setNotes(incoming.getNotes());</span>
+<span class="fc" id="L124">        availability.setDay(incoming.getDay());</span>
+<span class="fc" id="L125">        availability.setStartTime(incoming.getStartTime());</span>
+<span class="fc" id="L126">        availability.setEndTime(incoming.getEndTime());</span>
+<span class="fc" id="L127">        availability.setNotes(incoming.getNotes());</span>
 
-<span class="fc" id="L132">        driverAvailabilityRepository.save(availability);</span>
-<span class="fc" id="L133">        return ResponseEntity.ok(availability);</span>
+<span class="fc" id="L129">        driverAvailabilityRepository.save(availability);</span>
+<span class="fc" id="L130">        return ResponseEntity.ok(availability);</span>
     }
 
     //DELETE for driver Availability
@@ -139,13 +136,10 @@ import lombok.extern.slf4j.Slf4j;
     @DeleteMapping(&quot;&quot;)
     public Object deleteDriverAvailability(
             @Parameter(name=&quot;id&quot;) @RequestParam Long id) {
-<span class="fc" id="L142">        DriverAvailability availability = driverAvailabilityRepository.findById(id)</span>
-<span class="fc" id="L143">                .orElseThrow(() -&gt; new EntityNotFoundException(DriverAvailability.class, id));</span>
-<span class="pc bpc" id="L144" title="1 of 2 branches missed.">        if (availability.getDriverId() != getCurrentUser().getUser().getId()) {</span>
-<span class="nc" id="L145">            throw new EntityNotFoundException(DriverAvailability.class, id);</span>
-        }
-<span class="fc" id="L147">        driverAvailabilityRepository.delete(availability);</span>
-<span class="fc" id="L148">        return genericMessage(&quot;DriverAvailability with id %s deleted&quot;.formatted(id));</span>
+<span class="fc" id="L139">        DriverAvailability availability = driverAvailabilityRepository.findById(id)</span>
+<span class="fc" id="L140">                .orElseThrow(() -&gt; new EntityNotFoundException(DriverAvailability.class, id));</span>
+<span class="fc" id="L141">        driverAvailabilityRepository.delete(availability);</span>
+<span class="fc" id="L142">        return genericMessage(&quot;DriverAvailability with id %s deleted&quot;.formatted(id));</span>
     }
 
     //Lets Admin GET a single availability by ID
@@ -158,10 +152,9 @@ import lombok.extern.slf4j.Slf4j;
                     @RequestParam Long id) 
     {
         DriverAvailability availability;
-<span class="fc" id="L161">        availability = driverAvailabilityRepository.findById(id)</span>
-<span class="fc" id="L162">                    .orElseThrow(() -&gt; new EntityNotFoundException(DriverAvailability.class, id));</span>
-                
-<span class="fc" id="L164">        return availability;</span>
+<span class="fc" id="L155">        availability = driverAvailabilityRepository.findById(id)</span>
+<span class="fc" id="L156">                    .orElseThrow(() -&gt; new EntityNotFoundException(DriverAvailability.class, id));</span>
+<span class="fc" id="L157">        return availability;</span>
     }
 
     //Lets admins get all driver availabilties
@@ -169,8 +162,8 @@ import lombok.extern.slf4j.Slf4j;
     @PreAuthorize(&quot;hasRole('ROLE_ADMIN')&quot;)
     @GetMapping(&quot;/admin/all&quot;)
     public Iterable&lt;DriverAvailability&gt; allDriverAvailabilities() {
-<span class="fc" id="L172">        Iterable&lt;DriverAvailability&gt; availabilities = driverAvailabilityRepository.findAll();</span>
-<span class="fc" id="L173">        return availabilities;</span>
+<span class="fc" id="L165">        Iterable&lt;DriverAvailability&gt; availabilities = driverAvailabilityRepository.findAll();</span>
+<span class="fc" id="L166">        return availabilities;</span>
     }
 
 }
