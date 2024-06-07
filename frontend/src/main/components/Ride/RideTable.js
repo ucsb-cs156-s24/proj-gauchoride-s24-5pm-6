@@ -157,7 +157,7 @@ export default function RideTable({
             Header: 'Assigned?',
             accessor: 'shiftId',
             Cell: ({ value }) => (
-                value === '0' ? 'unassigned' : 'assigned'
+                (value === '0' || value === 0) ? 'unassigned' : 'assigned'
             ),
         },
         {
